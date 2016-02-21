@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace SocialNetwork.Models
+namespace SocialNetwork.ViewModels.Account
 {
     public class ExternalLoginConfirmationViewModel
     {
@@ -64,6 +64,14 @@ namespace SocialNetwork.Models
 
     public class RegisterViewModel
     {
+        [Required]
+        [Display(Name = "First name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last name")]
+        public string LastName { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
