@@ -1,0 +1,47 @@
+﻿@model  List <SocialNetwork.ViewModels.Resource.IndexViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section css
+{
+   @Styles.Render("~/Content/font-awesome.min.css")
+}
+
+<h2>Resources</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@foreach (var item in Model)
+{
+    <div class="well" style="max-width: 450px">
+        <div class="media">
+            <a href="/Resources/Details/@item.Id" class="pull-left">
+                <img class="media-object" src="~/Content/Images/link.png">
+            </a>
+            <div class="media-body">
+                <a href="/Resources/Details/@item.Id"><h4 class="media-heading">@item.Name</h4></a>
+                <p class="text-right">By&nbsp;@item.UserName</p>
+                <ul class="list-inline list-unstyled">
+                    <li>
+                        <span><i class="glyphicon glyphicon-calendar"></i>@item.PostingTime</span>
+                    </li>
+                    <li>|</li>
+                    <li>
+                        <span><i class="glyphicon glyphicon-eye-open"></i> @item.ViewsNumber</span>
+                    </li>
+                    <li>|</li>
+                    <li>
+                        <span><i class="fa fa-facebook-square"></i></span>
+                        <span><i class="fa fa-twitter-square"></i></span>
+                        <span><i class="fa fa-google-plus-square"></i></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+}

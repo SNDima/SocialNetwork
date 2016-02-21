@@ -1,0 +1,42 @@
+﻿@model List<KeyValuePair<KeyValuePair<int, string>, int>>
+
+@{
+    ViewBag.Title = "Conversations";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<center><h2>@ViewBag.Title</h2></center>
+
+<table class="table">
+    <tr>
+        <th style="text-align: center">
+            Sender
+        </th>
+        <th style="text-align:center">
+            Unread messages
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var keyValuePair in Model) {
+    <tr align="center">
+        <td>
+            <span id="@keyValuePair.Key.Key">@keyValuePair.Key.Value</span>
+            <button style="margin-left: 20px" class="btn btn-default" onclick="changeConversationName(@keyValuePair.Key.Key)">
+                <img src="~/Content/Images/reset.png" title="Set conversation name" alt="Set conversation name" width="28" height="20"/>
+            </button>
+        </td>
+        <td>
+            @keyValuePair.Value.ToString()
+        </td>
+        <td>
+            @Html.ActionLink("Show messages >>", "Conversation", "User", new { conversationId = keyValuePair.Key.Key }, null)
+        </td>
+    </tr>
+}
+</table>
+
+@section scripts
+{
+    @Scripts.Render("~/Scripts/user.index.js")
+}

@@ -1,0 +1,57 @@
+﻿@model SocialNetwork.ViewModels.Resource.IndexViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section css
+{
+    @Styles.Render("~/Content/font-awesome.min.css")
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Resource</h4>
+    <hr/>
+    <div class="well" style="max-width: 800px">
+        <div class="media">
+            <div class="media-body">
+                <h4 class="media-heading">@Model.Name</h4>
+                <p class="text-right">By&nbsp;@Model.UserName</p>
+                <p>
+                    @Model.Description
+                </p>
+                <ul>
+                    @foreach (var url in Model.URLs)
+                    {
+                        <li>
+                            <a href="@url">@url</a>
+                        </li>
+                    }
+                </ul>
+                <ul class="list-inline list-unstyled">
+                    <li>
+                        <span><i class="glyphicon glyphicon-calendar"></i>@Model.PostingTime</span>
+                    </li>
+                    <li>|</li>
+                    <li>
+                        <span><i class="glyphicon glyphicon-eye-open"></i> @Model.ViewsNumber</span>
+                    </li>
+                    <li>|</li>
+                    <li>
+                        <span><i class="fa fa-facebook-square"></i></span>
+                        <span><i class="fa fa-twitter-square"></i></span>
+                        <span><i class="fa fa-google-plus-square"></i></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {id = Model.Id}) |
+    @Html.ActionLink("Delete", "Delete", new {id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
