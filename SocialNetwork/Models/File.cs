@@ -3,13 +3,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SocialNetwork.Models
 {
-    public class FilesStorageFolder
+    public class File
     {
-        [Key, ForeignKey("Resource")]
-        public long ResourceId { get; set; }
-
+        public long Id { get; set; }
         public string Path { get; set; }
 
+        [ForeignKey("Resource")]
+        public long ResourceId { get; set; }
         public virtual Resource Resource { get; set; }
     }
 }

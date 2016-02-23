@@ -7,13 +7,13 @@ namespace SocialNetwork.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddedFilesStorageFolderModel : IMigrationMetadata
+    public sealed partial class AddedFileModel : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedFilesStorageFolderModel));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedFileModel));
         
         string IMigrationMetadata.Id
         {
-            get { return "201602231512352_AddedFilesStorageFolderModel"; }
+            get { return "201602231904243_AddedFileModel"; }
         }
         
         string IMigrationMetadata.Source

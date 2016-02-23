@@ -12,12 +12,11 @@ namespace SocialNetwork.Models
         public DateTime PostingTime { get; set; }
         public int ViewsNumber { get; set; }
 
+        public virtual List<File> Files { get; set; }
         public virtual List<URL> URLs { get; set; }
 
         [ForeignKey("Owner")]
         public string OwnerId { get; set; }
         public virtual ApplicationUser Owner { get; set; }
-
-        public virtual FilesStorageFolder Folder { get; set; }
     }
 }

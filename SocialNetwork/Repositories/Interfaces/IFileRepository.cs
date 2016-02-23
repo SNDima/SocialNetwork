@@ -2,7 +2,7 @@
 
 namespace SocialNetwork.Repositories.Interfaces
 {
-    public interface IFolderRepository : IRepository<FilesStorageFolder, long>
+    public interface IFileRepository : IRepository<File, long>
     {
     }
 }

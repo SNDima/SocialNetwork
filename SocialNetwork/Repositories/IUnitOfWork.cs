@@ -11,7 +11,7 @@ namespace SocialNetwork.Repositories
         ILinkRepository Links { get; }
         IResourceRepository Resources { get; }
         IURLRepository URLs { get; }
-        IFolderRepository Folders { get; }
+        IFileRepository Files { get; }
         int Complete();
     }
 }
