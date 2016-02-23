@@ -10,6 +10,7 @@ namespace SocialNetwork.Models
         public DbSet<UserToConversationLink> UserConversations { get; set; }
         public DbSet<Resource> Resources { get; set; }
         public DbSet<URL> URLs { get; set; }
+        public DbSet<FilesStorageFolder> Folders { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

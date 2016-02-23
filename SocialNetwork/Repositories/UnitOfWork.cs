@@ -17,6 +17,7 @@ namespace SocialNetwork.Repositories
             Links = new LinkRepository(this.context);
             Resources = new ResourceRepository(this.context);
             URLs = new URLRepository(this.context);
+            Folders = new FolderRepository(this.context);
         }
 
         public IConversationRepository Conversations { get; private set; }
@@ -25,6 +26,7 @@ namespace SocialNetwork.Repositories
         public ILinkRepository Links { get; private set; }
         public IResourceRepository Resources { get; private set; }
         public IURLRepository URLs { get; private set; }
+        public IFolderRepository Folders { get; private set; }
 
         public int Complete()
         {

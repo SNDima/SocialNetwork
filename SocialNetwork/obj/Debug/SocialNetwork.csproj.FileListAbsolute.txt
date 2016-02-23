@@ -85,3 +85,4 @@ C:\asp_net\SocialNetwork\SocialNetwork\bin\Microsoft.Threading.Tasks.dll
 C:\asp_net\SocialNetwork\SocialNetwork\bin\Microsoft.Threading.Tasks.Extensions.dll
 C:\asp_net\SocialNetwork\SocialNetwork\bin\Microsoft.Threading.Tasks.xml
 C:\asp_net\SocialNetwork\SocialNetwork\bin\Microsoft.Threading.Tasks.Extensions.xml
+C:\asp_net\SocialNetwork\SocialNetwork\obj\Debug\SocialNetwork.Migrations.AddedFilesStorageFolderModel.resources

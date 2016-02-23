@@ -17,5 +17,7 @@ namespace SocialNetwork.Models
         [ForeignKey("Owner")]
         public string OwnerId { get; set; }
         public virtual ApplicationUser Owner { get; set; }
+
+        public virtual FilesStorageFolder Folder { get; set; }
     }
 }

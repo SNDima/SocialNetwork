@@ -235,16 +235,22 @@
     <Compile Include="Migrations\201602171042268_AddedURLModel.Designer.cs">
       <DependentUpon>201602171042268_AddedURLModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201602231512352_AddedFilesStorageFolderModel.cs" />
+    <Compile Include="Migrations\201602231512352_AddedFilesStorageFolderModel.Designer.cs">
+      <DependentUpon>201602231512352_AddedFilesStorageFolderModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Conversation.cs" />
+    <Compile Include="Models\FilesStorageFolder.cs" />
     <Compile Include="Models\Message.cs" />
     <Compile Include="Models\Resource.cs" />
     <Compile Include="Models\URL.cs" />
     <Compile Include="Models\UserToConversationLink.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Implementations\ConversationRepository.cs" />
+    <Compile Include="Repositories\Implementations\FolderRepository.cs" />
     <Compile Include="Repositories\Implementations\LinkRepository.cs" />
     <Compile Include="Repositories\Implementations\MessageRepository.cs" />
     <Compile Include="Repositories\Implementations\Repository.cs" />
@@ -252,6 +258,7 @@
     <Compile Include="Repositories\Implementations\URLRepository.cs" />
     <Compile Include="Repositories\Implementations\UserRepository.cs" />
     <Compile Include="Repositories\Interfaces\IConversationRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IFolderRepository.cs" />
     <Compile Include="Repositories\Interfaces\ILinkRepository.cs" />
     <Compile Include="Repositories\Interfaces\IMessageRepository.cs" />
     <Compile Include="Repositories\Interfaces\IRepository.cs" />
@@ -621,6 +628,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201602171042268_AddedURLModel.resx">
       <DependentUpon>201602171042268_AddedURLModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602231512352_AddedFilesStorageFolderModel.resx">
+      <DependentUpon>201602231512352_AddedFilesStorageFolderModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
