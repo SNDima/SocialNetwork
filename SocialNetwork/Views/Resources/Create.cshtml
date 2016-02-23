@@ -5,6 +5,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section css
+{
+    @Styles.Render("~/Content/resource.create.css")
+}
+
 <h2>Create</h2>
 
 @using (Html.BeginForm()) 
@@ -44,6 +49,20 @@
                     </div>
                 </div>
                 <button id="addButton" type="button" class="btn btn-default" onclick="addURL(1)"><i class="glyphicon glyphicon-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Upload files</label>
+            <div class="col-md-10">
+                <label class="switch switch-flat">
+                    <input class="switch-input" type="checkbox"/>
+                    <span class="switch-label" data-on="On" data-off="Off"></span> <span class="switch-handle"></span>
+                </label>
+                <br/>
+                <div id="upload">
+                    Uploading files
+                </div>
             </div>
         </div>
 

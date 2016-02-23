@@ -14,3 +14,11 @@
 function removeURL(id) {
     $('#' + id).remove();
 }
+
+$('.switch-input').change(function () {
+    if ($(this).is(':checked')) {
+        document.getElementById('upload').style.display = "block";
+    } else {
+        document.getElementById('upload').style.display = "none";
+    }
+});
