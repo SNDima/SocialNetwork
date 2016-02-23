@@ -79,3 +79,9 @@ C:\asp_net\SocialNetwork\SocialNetwork\bin\Microsoft.AspNet.SignalR.Core.dll
 C:\asp_net\SocialNetwork\SocialNetwork\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
 C:\asp_net\SocialNetwork\SocialNetwork\bin\Microsoft.AspNet.SignalR.Core.xml
 C:\asp_net\SocialNetwork\SocialNetwork\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\asp_net\SocialNetwork\SocialNetwork\bin\Backload.Contracts.dll
+C:\asp_net\SocialNetwork\SocialNetwork\bin\Backload.dll
+C:\asp_net\SocialNetwork\SocialNetwork\bin\Microsoft.Threading.Tasks.dll
+C:\asp_net\SocialNetwork\SocialNetwork\bin\Microsoft.Threading.Tasks.Extensions.dll
+C:\asp_net\SocialNetwork\SocialNetwork\bin\Microsoft.Threading.Tasks.xml
+C:\asp_net\SocialNetwork\SocialNetwork\bin\Microsoft.Threading.Tasks.Extensions.xml

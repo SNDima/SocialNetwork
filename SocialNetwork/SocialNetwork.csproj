@@ -590,6 +590,7 @@
     <Content Include="Views\User\Conversation.cshtml" />
     <Content Include="Views\User\Friends.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Resources\Upload.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
