@@ -239,6 +239,10 @@
     <Compile Include="Migrations\201602231904243_AddedFileModel.Designer.cs">
       <DependentUpon>201602231904243_AddedFileModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201602241121466_FileModelChanging.cs" />
+    <Compile Include="Migrations\201602241121466_FileModelChanging.Designer.cs">
+      <DependentUpon>201602241121466_FileModelChanging.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
@@ -631,6 +635,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201602231904243_AddedFileModel.resx">
       <DependentUpon>201602231904243_AddedFileModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602241121466_FileModelChanging.resx">
+      <DependentUpon>201602241121466_FileModelChanging.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

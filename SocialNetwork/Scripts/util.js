@@ -58,7 +58,7 @@
     };
 
     chat.client.disconnect = function() {
-        window.location.assign("https://localhost:44300/User");
+        window.location.assign("http://localhost/SocialNetwork/User");
     }
 
     // Connection opening

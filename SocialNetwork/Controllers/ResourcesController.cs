@@ -128,6 +128,25 @@ namespace SocialNetwork.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        public void AddFile(string filePath)
+        {
+            File file = new File {Path = filePath};
+            unitOfWork.Files.Add(file);
+            unitOfWork.Complete();
+        }
+
+        [HttpPost]
+        public void DeleteFile(string filePath)
+        {
+            var file = unitOfWork.Files.SingleOrDefault(f => f.Path == filePath);
+            if (file != null)
+            {
+                unitOfWork.Files.Remove(file);
+                unitOfWork.Complete();
+            }
+        }
+
         private IndexViewModel CreateIndexViewModel(Resource resource)
         {
             return new IndexViewModel()

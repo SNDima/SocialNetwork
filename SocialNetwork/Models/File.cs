@@ -9,7 +9,7 @@ namespace SocialNetwork.Models
         public string Path { get; set; }
 
         [ForeignKey("Resource")]
-        public long ResourceId { get; set; }
+        public long? ResourceId { get; set; }
         public virtual Resource Resource { get; set; }
     }
 }
