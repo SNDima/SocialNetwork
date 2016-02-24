@@ -67,7 +67,7 @@ $(function () {
     });
 
     // Optional: Load existing files:
-    $('#fileupload').addClass('fileupload-processing');
+    /*$('#fileupload').addClass('fileupload-processing');
     $.ajax({
         // Uncomment the following to send cross-domain cookies:
         // xhrFields: {withCredentials: true},
@@ -79,5 +79,13 @@ $(function () {
     }).done(function (result) {
         $(this).fileupload('option', 'done')
             .call(this, $.Event('done'), { result: result });
-    });
+    });*/
 });
+
+function createResource() {
+    $("#fileupload td p.name a").each(function () {
+        $('#createresource').append('<input type="hidden" name="FilesPaths" '
+            + ' value=' + $(this).attr("href") + ' />');
+    });
+    return true;
+}

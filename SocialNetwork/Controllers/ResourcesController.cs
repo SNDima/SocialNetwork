@@ -72,6 +72,7 @@ namespace SocialNetwork.Controllers
                 unitOfWork.Resources.Add(resource);
                 unitOfWork.Complete();
                 unitOfWork.URLs.CreateURLs(model.URLs, resource.Id);
+                CreateFiles(model.FilesPaths, resource.Id);
                 return RedirectToAction("Index");
             }
             return View(model);
@@ -170,6 +171,35 @@ namespace SocialNetwork.Controllers
                 URLs.Add(url.Content);
             }
             return URLs;
+        }
+
+        private void CreateFiles(List<string> paths, long resourceId)
+        {
+            if (paths != null)
+            {
+                foreach (var path in paths)
+                {
+                    var file = unitOfWork.Files
+                        .SingleOrDefault(f => f.Path == path);
+                    if (file != null)
+                    {
+                        file.ResourceId = resourceId;
+                        unitOfWork.Complete();
+                    }
+                }
+            }
+            ClearFiles();
+        }
+
+        private void ClearFiles()
+        {
+            var badFiles = unitOfWork.Files.GetAll()
+                .Where(file => file.ResourceId == null).ToList();
+            foreach (var badFile in badFiles)
+            {
+                unitOfWork.Files.Remove(badFile);
+                unitOfWork.Complete();
+            }
         }
 
         private string GetId()

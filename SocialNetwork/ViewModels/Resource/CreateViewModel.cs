@@ -13,5 +13,7 @@ namespace SocialNetwork.ViewModels.Resource
 
         [DataType(DataType.Url)]
         public List<string> URLs { get; set; }
+
+        public List<string> FilesPaths { get; set; }
     }
 }

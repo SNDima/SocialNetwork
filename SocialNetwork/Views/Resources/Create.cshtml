@@ -15,7 +15,7 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm("Create", "Resources", FormMethod.Post, new { Id = "createresource" })) 
+@using (Html.BeginForm("Create", "Resources", FormMethod.Post, new { Id = "createresource", onsubmit = "return createResource()" })) 
 {
     @Html.AntiForgeryToken()
     
