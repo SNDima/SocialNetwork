@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Transactions;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using SocialNetwork.Models;
@@ -41,6 +42,9 @@ namespace SocialNetwork.Controllers
             }
             unitOfWork.Resources.IncreaseViewsNumber(resource);
             var model = CreateIndexViewModel(resource);
+            var filesNames = unitOfWork.Resources.Get(id)
+                .Files.Select(file => file.Path.Split('\\').Last()).ToList();
+            ViewBag.Names = String.Join("|", filesNames);
             return View(model);
         }
 
@@ -72,7 +76,7 @@ namespace SocialNetwork.Controllers
                 unitOfWork.Resources.Add(resource);
                 unitOfWork.Complete();
                 unitOfWork.URLs.CreateURLs(model.URLs, resource.Id);
-                CreateFiles(model.FilesPaths, resource.Id);
+                CreateFiles(model.FilesNames, resource.Id);
                 return RedirectToAction("Index");
             }
             return View(model);
@@ -123,24 +127,32 @@ namespace SocialNetwork.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(long id)
         {
-            Resource resource = unitOfWork.Resources.Get(id);
-            unitOfWork.Resources.Remove(resource);
-            unitOfWork.Complete();
+            using (TransactionScope scope = new TransactionScope())
+            {
+                Resource resource = unitOfWork.Resources.Get(id);
+                RemoveFiles(resource.Files);
+                unitOfWork.Resources.Remove(resource);
+                unitOfWork.Complete();
+                scope.Complete();
+            }
             return RedirectToAction("Index");
+            
         }
 
         [HttpPost]
-        public void AddFile(string filePath)
+        public void AddFile(string fileName)
         {
-            File file = new File {Path = filePath};
+            File file = new File {Path = Server.MapPath("~/Files/" + fileName)};
             unitOfWork.Files.Add(file);
             unitOfWork.Complete();
         }
 
         [HttpPost]
-        public void DeleteFile(string filePath)
+        public void DeleteFile(string fileName)
         {
-            var file = unitOfWork.Files.SingleOrDefault(f => f.Path == filePath);
+            var filePath = Server.MapPath("~/Files/" + fileName);
+            var file = unitOfWork.Files.SingleOrDefault(
+                f => f.Path == filePath);
             if (file != null)
             {
                 unitOfWork.Files.Remove(file);
@@ -159,7 +171,8 @@ namespace SocialNetwork.Controllers
                 PostingTime = resource.PostingTime.ToString(),
                 ViewsNumber = resource.ViewsNumber,
                 Description = resource.Description,
-                URLs = GetResourceURLs(resource)
+                URLs = GetResourceURLs(resource),
+                FilesNames = GetFilesNames(resource)
             };
         }
 
@@ -173,14 +186,25 @@ namespace SocialNetwork.Controllers
             return URLs;
         }
 
-        private void CreateFiles(List<string> paths, long resourceId)
+        private List<string> GetFilesNames(Resource resource)
         {
-            if (paths != null)
+            List<string> names = new List<string>();
+            foreach (File file in resource.Files)
             {
-                foreach (var path in paths)
+                names.Add(file.Path.Split('\\').Last());
+            }
+            return names;
+        }
+
+        private void CreateFiles(List<string> names, long resourceId)
+        {
+            if (names != null)
+            {
+                foreach (var name in names)
                 {
-                    var file = unitOfWork.Files
-                        .SingleOrDefault(f => f.Path == path);
+                    var filePath = Server.MapPath("~/Files/" + name);
+                    var file = unitOfWork.Files.SingleOrDefault(
+                        f => f.Path == filePath);
                     if (file != null)
                     {
                         file.ResourceId = resourceId;
@@ -198,6 +222,27 @@ namespace SocialNetwork.Controllers
             foreach (var badFile in badFiles)
             {
                 unitOfWork.Files.Remove(badFile);
+                unitOfWork.Complete();
+            }
+        }
+
+        private void RemoveFiles(List<File> files)
+        {
+            if (files != null)
+            {
+                var removingFiles = new List<File>();
+                foreach (var file in files)
+                {
+                    string fileName = file.Path.Split('\\').Last();
+                    if (System.IO.File.Exists(file.Path))
+                    {
+                        System.IO.File.Delete(file.Path);
+                        System.IO.File.Delete(Server.MapPath(
+                            "~/Files/_thumbs/" + fileName + ".png"));
+                    }
+                    removingFiles.Add(file);
+                }
+                unitOfWork.Files.RemoveRange(removingFiles);
                 unitOfWork.Complete();
             }
         }

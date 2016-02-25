@@ -48,9 +48,8 @@ $(function () {
                 type: "POST",
                 url: "AddFile",
                 data: {
-                    filePath: data.result.files[0].url
+                    fileName: data.result.files[0].name
                 }
-
             });
     });
 
@@ -60,9 +59,8 @@ $(function () {
                 type: "POST",
                 url: "DeleteFile",
                 data: {
-                    filePath: data.context.find('a[download]').attr('href')
+                    fileName: data.context.find('a[download]').attr('download')
                 }
-
             });
     });
 
@@ -84,8 +82,8 @@ $(function () {
 
 function createResource() {
     $("#fileupload td p.name a").each(function () {
-        $('#createresource').append('<input type="hidden" name="FilesPaths" '
-            + ' value=' + $(this).attr("href") + ' />');
+        $('#createresource').append('<input type="hidden" name="FilesNames" '
+            + ' value="' + $(this).attr("download") + '" />');
     });
     return true;
 }

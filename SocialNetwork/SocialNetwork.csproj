@@ -77,6 +77,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -553,6 +554,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\resource.create.js" />
+    <Content Include="Scripts\resource.details.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\user.index.js" />
@@ -602,6 +604,7 @@
     <Content Include="Views\User\Friends.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Resources\Upload.cshtml" />
+    <Content Include="Views\Resources\DetailsPartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -19,7 +19,7 @@ function addUser(userId, userName) {
     conversationParticipants.push({Id: userId, Name: userName});
     conversationParticipantsIds.push(userId);
     $('#chatusers').append('<p id="' + userId + '"><b>' + userName
-        + '</b><img src="/Content/Images/minus.png" onclick="removeUser('
+        + '</b><img src="/SocialNetwork/Content/Images/minus.png" onclick="removeUser('
         + '\'' + userId + '\'' + ', \'' + userName + '\')"/></p>');
     $('#' + userId + 'img').attr('src', $('#' + userId + 'img').attr('src').replace('plus', 'minus'));
     $('#' + userId + 'img').attr('onclick', $('#' + userId + 'img').attr('onclick').replace('add', 'remove'));
@@ -37,7 +37,7 @@ function displayUsers(data) {
         for (var i = 0; i < conversationParticipants.length; i++) {
             $('#friendsTable').append('<tr><td><b>' + conversationParticipants[i].Name
                 + '</b></td><td><img id="' + conversationParticipants[i].Id
-                + 'img" src="/Content/Images/minus.png"  onclick="removeUser(\''
+                + 'img" src="/SocialNetwork/Content/Images/minus.png"  onclick="removeUser(\''
                 + conversationParticipants[i].Id + '\', \''
                 + conversationParticipants[i].Name + '\')"/></td></tr>');
         }
@@ -45,7 +45,7 @@ function displayUsers(data) {
             for (var j = 0; j < data.length; j++) {
                 $('#friendsTable').append('<tr><td><b>' + data[j].Name
                 + '</b></td><td><img id="' + data[j].Id
-                + 'img" src="/Content/Images/plus.png"  onclick="addUser(\''
+                + 'img" src="/SocialNetwork/Content/Images/plus.png"  onclick="addUser(\''
                 + data[j].Id + '\', \''
                 + data[j].Name + '\')"/></td></tr>');
             }
