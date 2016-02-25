@@ -555,6 +555,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\resource.create.js" />
     <Content Include="Scripts\resource.details.js" />
+    <Content Include="Scripts\resource.edit.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\user.index.js" />
@@ -605,6 +606,7 @@
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Resources\Upload.cshtml" />
     <Content Include="Views\Resources\DetailsPartialView.cshtml" />
+    <Content Include="Views\Resources\EditPartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

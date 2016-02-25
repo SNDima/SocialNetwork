@@ -81,9 +81,11 @@ $(function () {
 });
 
 function createResource() {
-    $("#fileupload td p.name a").each(function () {
-        $('#createresource').append('<input type="hidden" name="FilesNames" '
-            + ' value="' + $(this).attr("download") + '" />');
-    });
+    if ($('.switch-input').prop('checked')) {
+        $("#fileupload td p.name a").each(function() {
+            $('#createresource').append('<input type="hidden" name="FilesNames" '
+                + ' value="' + $(this).attr("download") + '" />');
+        });
+    }
     return true;
 }

@@ -1,7 +1,7 @@
 ﻿Details = function (filesNames) {
     'use strict';
 
-    var names = filesNames.split('|');
+    var names = filesNames.replace('&#39;', '\'').split('|');
 
     var web_app = 'http://localhost/SocialNetwork/';
     var url = web_app + 'Backload/FileHandler';

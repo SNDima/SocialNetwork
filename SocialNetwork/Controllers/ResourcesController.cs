@@ -89,6 +89,9 @@ namespace SocialNetwork.Controllers
             {
                 return HttpNotFound();
             }
+            var filesNames = unitOfWork.Resources.Get(id)
+                .Files.Select(file => file.Path.Split('\\').Last()).ToList();
+            ViewBag.Names = String.Join("|", filesNames);
             EditViewModel model = CreateIndexViewModel(resource);
             return View(model);
         }
@@ -106,6 +109,7 @@ namespace SocialNetwork.Controllers
                 resource.PostingTime = DateTime.Now;
                 unitOfWork.Complete();
                 unitOfWork.URLs.CreateURLs(model.URLs, resource.Id);
+                CreateFiles(model.FilesNames, resource.Id);
                 return RedirectToAction("Index");
             }
             model.Id = resourceId;
@@ -205,12 +209,16 @@ namespace SocialNetwork.Controllers
                     var filePath = Server.MapPath("~/Files/" + name);
                     var file = unitOfWork.Files.SingleOrDefault(
                         f => f.Path == filePath);
-                    if (file != null)
+                    if (file != null && file.ResourceId == null)
                     {
                         file.ResourceId = resourceId;
                         unitOfWork.Complete();
                     }
                 }
+            }
+            else
+            {
+                DeleteFiles(resourceId);
             }
             ClearFiles();
         }
@@ -219,11 +227,7 @@ namespace SocialNetwork.Controllers
         {
             var badFiles = unitOfWork.Files.GetAll()
                 .Where(file => file.ResourceId == null).ToList();
-            foreach (var badFile in badFiles)
-            {
-                unitOfWork.Files.Remove(badFile);
-                unitOfWork.Complete();
-            }
+            RemoveFiles(badFiles);
         }
 
         private void RemoveFiles(List<File> files)
@@ -245,6 +249,12 @@ namespace SocialNetwork.Controllers
                 unitOfWork.Files.RemoveRange(removingFiles);
                 unitOfWork.Complete();
             }
+        }
+
+        private void DeleteFiles(long resourceId)
+        {
+            var resource = unitOfWork.Resources.Get(resourceId);
+            RemoveFiles(resource.Files);
         }
 
         private string GetId()
