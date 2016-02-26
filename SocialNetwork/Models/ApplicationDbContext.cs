@@ -11,6 +11,9 @@ namespace SocialNetwork.Models
         public DbSet<Resource> Resources { get; set; }
         public DbSet<URL> URLs { get; set; }
         public DbSet<File> Files { get; set; }
+        public DbSet<AdditionalPhoneNumber> PhoneNumbers { get; set; }
+        public DbSet<AdditionalEmail> Emails { get; set; }
+        public DbSet<Skype> Skypes { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

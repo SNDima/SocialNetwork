@@ -12,6 +12,9 @@ namespace SocialNetwork.Repositories
         IResourceRepository Resources { get; }
         IURLRepository URLs { get; }
         IFileRepository Files { get; }
+        IPhoneNumberRepository PhoneNumbers { get; }
+        IEmailRepository Emails { get; }
+        ISkypeRepository Skypes { get; }
         int Complete();
     }
 }

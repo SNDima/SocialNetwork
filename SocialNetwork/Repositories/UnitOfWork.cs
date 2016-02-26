@@ -18,6 +18,9 @@ namespace SocialNetwork.Repositories
             Resources = new ResourceRepository(this.context);
             URLs = new URLRepository(this.context);
             Files = new FileRepository(this.context);
+            PhoneNumbers = new PhoneNumberRepository(this.context);
+            Emails = new EmailRepository(this.context);
+            Skypes = new SkypeRepository(this.context);
         }
 
         public IConversationRepository Conversations { get; private set; }
@@ -27,6 +30,9 @@ namespace SocialNetwork.Repositories
         public IResourceRepository Resources { get; private set; }
         public IURLRepository URLs { get; private set; }
         public IFileRepository Files { get; private set; }
+        public IPhoneNumberRepository PhoneNumbers { get; private set; }
+        public IEmailRepository Emails { get; private set; }
+        public ISkypeRepository Skypes { get; private set; }
 
         public int Complete()
         {

@@ -244,30 +244,47 @@
     <Compile Include="Migrations\201602241121466_FileModelChanging.Designer.cs">
       <DependentUpon>201602241121466_FileModelChanging.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201602261957106_ApplicationUserUpdate.cs" />
+    <Compile Include="Migrations\201602261957106_ApplicationUserUpdate.Designer.cs">
+      <DependentUpon>201602261957106_ApplicationUserUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602262125199_NewUserProperties.cs" />
+    <Compile Include="Migrations\201602262125199_NewUserProperties.Designer.cs">
+      <DependentUpon>201602262125199_NewUserProperties.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AdditionalEmail.cs" />
+    <Compile Include="Models\AdditionalPhoneNumber.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Conversation.cs" />
     <Compile Include="Models\File.cs" />
     <Compile Include="Models\Message.cs" />
     <Compile Include="Models\Resource.cs" />
+    <Compile Include="Models\Skype.cs" />
     <Compile Include="Models\URL.cs" />
     <Compile Include="Models\UserToConversationLink.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Implementations\ConversationRepository.cs" />
+    <Compile Include="Repositories\Implementations\EmailRepository.cs" />
     <Compile Include="Repositories\Implementations\FileRepository.cs" />
     <Compile Include="Repositories\Implementations\LinkRepository.cs" />
     <Compile Include="Repositories\Implementations\MessageRepository.cs" />
+    <Compile Include="Repositories\Implementations\PhoneNumberRepository.cs" />
     <Compile Include="Repositories\Implementations\Repository.cs" />
     <Compile Include="Repositories\Implementations\ResourceRepository.cs" />
+    <Compile Include="Repositories\Implementations\SkypeRepository.cs" />
     <Compile Include="Repositories\Implementations\URLRepository.cs" />
     <Compile Include="Repositories\Implementations\UserRepository.cs" />
     <Compile Include="Repositories\Interfaces\IConversationRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEmailRepository.cs" />
     <Compile Include="Repositories\Interfaces\IFileRepository.cs" />
     <Compile Include="Repositories\Interfaces\ILinkRepository.cs" />
     <Compile Include="Repositories\Interfaces\IMessageRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IPhoneNumberRepository.cs" />
     <Compile Include="Repositories\Interfaces\IRepository.cs" />
     <Compile Include="Repositories\Interfaces\IResourceRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ISkypeRepository.cs" />
     <Compile Include="Repositories\Interfaces\IURLRepository.cs" />
     <Compile Include="Repositories\Interfaces\IUserRepository.cs" />
     <Compile Include="Repositories\IUnitOfWork.cs" />
@@ -643,6 +660,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201602241121466_FileModelChanging.resx">
       <DependentUpon>201602241121466_FileModelChanging.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602261957106_ApplicationUserUpdate.resx">
+      <DependentUpon>201602261957106_ApplicationUserUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602262125199_NewUserProperties.resx">
+      <DependentUpon>201602262125199_NewUserProperties.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

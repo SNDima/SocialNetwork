@@ -1,4 +1,5 @@
-﻿using System.Security.Claims;
+﻿using System;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -15,6 +16,18 @@ namespace SocialNetwork.Models
 
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
+
+        public virtual List<AdditionalPhoneNumber> PhoneNumbers { get; set; }
+
+        public virtual List<AdditionalEmail> Emails { get; set; }
+
+        public virtual List<Skype> Skypes { get; set; }
+
+        public DateTime? Birthday { get; set; }
+
+        [StringLength(128, ErrorMessage
+            = "The Position value cannot exceed 128 characters. ")]
+        public string Position { get; set; }
 
         public virtual List<UserToConversationLink> Links { get; set; }
 
